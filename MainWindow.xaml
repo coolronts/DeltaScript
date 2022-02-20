@@ -1,0 +1,115 @@
+﻿<Window x:Class="DeltaScript.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        
+        xmlns:fa="clr-namespace:FontAwesome.WPF;assembly=FontAwesome.WPF"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" ResizeMode="NoResize" AllowsTransparency="True"
+        Height="450" Width="800" Background="#181735">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="35"/>
+            <RowDefinition Height="25"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid Background="#0F0F2D" ColumnSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.ColumnSpan="2"  FontFamily="Fonts/#Dosis" FontSize="18" Text="DeltaScript" Foreground="White" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+            <TextBlock Grid.Column="1" Text="By Ronty" FontFamily="Fonts/#Dosis" Foreground="White" VerticalAlignment="Bottom" FontSize="10"/>
+            <TextBlock Grid.Column="2" Text="Main" FontFamily="Fonts/#Dosis" Foreground="LightGray" HorizontalAlignment="Stretch" VerticalAlignment="Center" FontSize="12"/>
+            <TextBlock Grid.Column="3" Text="Settings" FontFamily="Fonts/#Dosis" Foreground="LightGray" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="12"/>
+            <Button Grid.Column="10" Name="CloseButton" Background="#FF4C70" Click="CloseButton_OnClick" Height="24" Width="48" HorizontalAlignment="Right" >
+                <fa:FontAwesome Icon="Close" Foreground="White"/>
+            </Button>
+        </Grid>
+        <Grid Grid.Row="1">
+            <TextBlock Name="TextError" Foreground="OrangeRed" HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="SemiBold"/>
+        </Grid>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+               <ColumnDefinition/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+           
+            <Border  BorderThickness="1" CornerRadius="10" Margin="25,10" BorderBrush="White"  VerticalAlignment="Top" Padding="12">
+               <StackPanel Orientation="Vertical">
+                   <Grid>
+                       <Grid.RowDefinitions>
+                           <RowDefinition/>
+                           <RowDefinition/>
+                           <RowDefinition/>
+                           <RowDefinition/>
+                       </Grid.RowDefinitions>
+                       <TextBlock Grid.Row="0" Text="Directories" TextDecorations="Underline" Foreground="White" Margin="0,5,0,10" FontSize="12" FontStretch="Condensed" FontWeight="SemiBold" />
+                        <Grid Grid.Row="1">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                                <ColumnDefinition/>
+                            </Grid.ColumnDefinitions>
+                            <TextBlock VerticalAlignment="Center" Foreground="White" Text="Delta Root Folder" FontSize="8"></TextBlock>
+                            <TextBox Name="TextRootFolder" Grid.Column="1" 
+                            Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"/>
+                            <Button Grid.Column="4" Name="FilePathButton" Width="20" Height="15" Background="#3A3952" VerticalAlignment="Top" HorizontalAlignment="Left"  Click="FilePathButton_OnClick">
+                                <fa:ImageAwesome Icon="Folder" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Width="10" Height="80"></fa:ImageAwesome>
+                            </Button>
+                        </Grid>
+                       <Grid Grid.Row="2" Margin="0,10">
+                           <Grid.ColumnDefinitions>
+                               <ColumnDefinition/>
+                               <ColumnDefinition/>
+                               <ColumnDefinition/>
+                               <ColumnDefinition/>
+                               <ColumnDefinition/>
+                           </Grid.ColumnDefinitions>
+                           <TextBlock VerticalAlignment="Center" Text="Archived Folder" Foreground="White" FontSize="8"></TextBlock>
+                           <TextBox Name="TextArchivedFolder" Grid.Column="1" Grid.ColumnSpan="3" HorizontalAlignment="Center" Width="250" Margin="0,0,10,0"
+                            
+                           />
+                           <Button Grid.Column="4" Name="ArchivedFolderButton" Width="20" Height="15" Background="#3A3952" VerticalAlignment="Top" HorizontalAlignment="Left"  Click="ArchivedFolderButton_OnClick">
+                               <fa:ImageAwesome Icon="Folder" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="White" Width="10" Height="80"></fa:ImageAwesome>
+                           </Button>
+                       </Grid>
+                       <Grid Grid.Row="3">
+                           <Border CornerRadius="6"  BorderBrush="#FF4C70" HorizontalAlignment="Center"  BorderThickness="2">
+                               <Button Name="CheckFolders" Background="#FF4C70" Width="48" BorderThickness="0" Foreground="White" Content="Check" Click="CheckFolders_OnClick"/>
+                           </Border>
+                       </Grid>
+                   </Grid>
+               </StackPanel>
+            </Border>
+            <Border Grid.Column="1" BorderThickness="1" CornerRadius="10" Margin="25,10" BorderBrush="White"  VerticalAlignment="Top" Padding="12" >
+                <StackPanel Orientation="Vertical">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition/>
+                        </Grid.RowDefinitions>
+                        <TextBlock Grid.Row="0" Text="Delta Script Files" TextDecorations="Underline" Foreground="White" Margin="0,5,0,10" FontSize="12" FontStretch="Condensed" FontWeight="SemiBold" />
+                        <Grid Grid.Row="1">
+                            <DataGrid Name="RootDirectoryDeltaScriptsFiles">
+                                
+                            </DataGrid>
+                        </Grid>
+                        </Grid>
+                </StackPanel>
+            </Border>
+        </Grid>
+    </Grid>
+</Window>
